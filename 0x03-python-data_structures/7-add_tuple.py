@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 def add_tuple(tuple_a=(), tuple_b=()):
     a_left, a_right = None, None
     b_left, b_right = None, None
