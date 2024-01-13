@@ -3,7 +3,8 @@ def uppercase(str):
     for ch in str:
         # shift by 32 to print the upper-cases
         if (97 <= ord(ch) <= 122):
-            print('{}'.format(chr(ord(ch) - 32)), end='')
+            to_print = chr(ord(ch) - 32)
         else:
-            print('{}'.format(ch), end='')
+            to_print = ch
+        print('{}'.format(to_print), end='')
     print()
