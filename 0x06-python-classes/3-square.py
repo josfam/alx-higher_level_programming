@@ -2,6 +2,7 @@
 
 """My first square"""
 
+
 class Square:
     """Defines a square"""
 
@@ -14,4 +15,4 @@ class Square:
 
     def area(self):
         """Returns the current area of the square"""
-        return self.__size ** 2
+        return self.__size**2
