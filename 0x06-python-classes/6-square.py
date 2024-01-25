@@ -50,9 +50,11 @@ class Square:
     def my_print(self):
         """Prints in stdout the square with the character #"""
         square_size = self.size
+        x, y = self.position
         if square_size == 0:
             print()
         else:
-            for i in range(square_size):
-                print(' ' * self.position[0], end='')
-                print('#' * square_size)
+            for h in range(y):  # move vertically
+                print()
+            for i in range(square_size):  # move horizontally
+                print("{}{}".format(' ' * x, '#' * square_size))
