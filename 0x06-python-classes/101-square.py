@@ -65,7 +65,7 @@ class Square:
         x, y = self.position
         printed = []
         if square_size == 0:
-            print()
+            return ''
         else:
             for h in range(y):  # move vertically
                 print()
