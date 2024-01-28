@@ -1,0 +1,44 @@
+Doctests for 0-add_integer.py functions
+=======================================
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+incorrect call of function
+--------------------------
+>>> add_integer()
+Traceback (most recent call last):
+...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+incorrect type for `a`
+----------------------
+>>> add_integer("a") 
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+incorrect type for `b`
+----------------------
+>>> add_integer(1, [1, 2, 3])
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+zeroes
+------
+>>> add_integer(0)
+98
+>>> add_integer(0, 0)
+0
+
+floats
+------
+>>> add_integer(10.5, 8.0)
+18
+
+negatives
+---------
+>>> add_integer(-5)
+93
+>>> add_integer(-10.123, -0)
+-10
