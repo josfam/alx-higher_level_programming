@@ -51,7 +51,8 @@ class Rectangle:
     def __str__(self):
         """Returns the string representation of the rectangle, by using #s"""
         to_print = []
-
+        if self.height == 0:
+            return ''
         for h in range(self.height):
             to_print.append(f"{'#' * self.width}")
             if h < self.height - 1:
