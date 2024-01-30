@@ -58,7 +58,7 @@ class Rectangle:
         if self.height == 0 or self.width == 0:
             return ''
         for h in range(self.height):
-            to_print.append(f"{self.print_symbol * self.width}")
+            to_print.append(f"{str(self.print_symbol) * self.width}")
             if h < self.height - 1:
                 to_print.append('\n')
 
