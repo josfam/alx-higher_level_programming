@@ -63,7 +63,7 @@ class Rectangle:
     def __repr__(self):
         """Returns the canonical representation of the rectangle"""
         return f"Rectangle({self.width}, {self.height})"
-    
+
     def __del__(self):
         """Displays a deletion message if this rectangle is deleted"""
         print('Bye rectangle...')
