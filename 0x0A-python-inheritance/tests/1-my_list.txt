@@ -25,6 +25,18 @@ Ascending appends should print descending elements when sorted
 >>> mylist.print_sorted()
 [1, 2, 3, 4, 5]
 
+An already sorted list stays the same when sorted again
+=======================================================
+>>> mylist = MyList()
+>>> mylist.append(1)
+>>> mylist.append(2)
+>>> mylist.append(3)
+>>> mylist.append(4)
+>>> print(mylist)
+[1, 2, 3, 4]
+>>> mylist.print_sorted()
+[1, 2, 3, 4]
+
 An empty list stays empty when sorted
 =====================================
 >>> mylist = MyList()
