@@ -1,0 +1,34 @@
+=====================================
+Test cases for 1-my_list.py functions
+=====================================
+>>> MyList = __import__('1-my_list').MyList
+
+Appending items should print those items
+========================================
+>>> mylist = MyList()
+>>> mylist.append(1)
+>>> mylist.append(2)
+>>> mylist.append(3)
+>>> mylist
+[1, 2, 3]
+
+Ascending appends should print descending elements when sorted
+==============================================================
+>>> mylist = MyList()
+>>> mylist.append(5)
+>>> mylist.append(4)
+>>> mylist.append(3)
+>>> mylist.append(2)
+>>> mylist.append(1)
+>>> print(mylist)
+[5, 4, 3, 2, 1]
+>>> mylist.print_sorted()
+[1, 2, 3, 4, 5]
+
+An empty list stays empty when sorted
+=====================================
+>>> mylist = MyList()
+>>> print(mylist)
+[]
+>>> mylist.print_sorted()
+[]
