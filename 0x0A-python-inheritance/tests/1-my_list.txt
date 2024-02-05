@@ -49,6 +49,19 @@ A list with the same element remains unchanged
 >>> mylist.print_sorted()
 [2, 2, 2, 2]
 
+A list with negatives is sorted correctly
+==============================================
+>>> mylist = MyList()
+>>> mylist.append(100)
+>>> mylist.append(200)
+>>> mylist.append(0)
+>>> mylist.append(-200)
+>>> mylist.append(-100)
+>>> print(mylist)
+[100, 200, 0, -200, -100]
+>>> mylist.print_sorted()
+[-200, -100, 0, 100, 200]
+
 An empty list stays empty when sorted
 =====================================
 >>> mylist = MyList()
