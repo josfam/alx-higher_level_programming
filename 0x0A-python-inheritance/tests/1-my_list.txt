@@ -37,6 +37,18 @@ An already sorted list stays the same when sorted again
 >>> mylist.print_sorted()
 [1, 2, 3, 4]
 
+A list with the same element remains unchanged
+==============================================
+>>> mylist = MyList()
+>>> mylist.append(2)
+>>> mylist.append(2)
+>>> mylist.append(2)
+>>> mylist.append(2)
+>>> print(mylist)
+[2, 2, 2, 2]
+>>> mylist.print_sorted()
+[2, 2, 2, 2]
+
 An empty list stays empty when sorted
 =====================================
 >>> mylist = MyList()
