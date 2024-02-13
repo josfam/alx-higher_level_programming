@@ -79,3 +79,12 @@ class Rectangle(Base):
         """Prints to stdout, the rectangle instance with #s"""
         for w in range(self.height):
             print('#' * self.width)
+    
+    def __str__(self):
+        """The more human-readable version of the Rectangle"""
+        id = self.id
+        x = self.x
+        y = self.y
+        w = self.width
+        h = self.height
+        return f'[Rectangle] ({id}) {x}/{y} - {w}/{h}'
