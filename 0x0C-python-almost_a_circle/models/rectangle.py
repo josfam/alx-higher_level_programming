@@ -105,7 +105,7 @@ class Rectangle(Base):
                 'y': '_Rectangle__y'
             }
 
-            for k, v in args.items():
+            for k, v in kwargs.items():
                 original_dict.update({kwargs_translation[k]: v})
 
     def __str__(self):
