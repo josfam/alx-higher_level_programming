@@ -91,8 +91,22 @@ class Rectangle(Base):
         original_dict = self.__dict__
         keys = self.__dict__.keys()
 
-        new_pairs = dict(zip(keys, args))
-        original_dict.update(new_pairs)
+        # skip **kwargs if *args exists and is not empty
+        if args and len(args):
+            new_pairs = dict(zip(keys, args))
+            original_dict.update(new_pairs)
+        else:
+            # translating the provided kwargs into class properties
+            kwargs_translation = {
+                'id': 'id',
+                'width': '_Rectangle__width',
+                'height': '_Rectangle__height',
+                'x': '_Rectangle__x',
+                'y': '_Rectangle__y'
+            }
+
+            for k, v in args.items():
+                original_dict.update({kwargs_translation[k]: v})
 
     def __str__(self):
         """The more human-readable version of the Rectangle"""
