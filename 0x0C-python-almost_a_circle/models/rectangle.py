@@ -76,9 +76,15 @@ class Rectangle(Base):
         return self.width * self.height
 
     def display(self):
-        """Prints to stdout, the rectangle instance with #s"""
-        for w in range(self.height):
-            print('#' * self.width)
+        """Prints to stdout, the rectangle instance with #s, taking care of
+        the x and y co-ordinates as well
+        """
+        x, y = self.x, self.y
+
+        for h in range(y):  # move vertically
+            print()
+        for w in range(self.height):  # move horizontally
+            print('{}{}'.format(' ' * x, '#' * self.width))
 
     def __str__(self):
         """The more human-readable version of the Rectangle"""
