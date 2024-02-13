@@ -86,21 +86,13 @@ class Rectangle(Base):
         for w in range(self.height):  # move horizontally
             print('{}{}'.format(' ' * x, '#' * self.width))
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Assigns an argument to each attribute"""
-        if len(args) == 1:
-            args = (args[0],)
+        original_dict = self.__dict__
+        keys = self.__dict__.keys()
 
-        original_args = self.__dict__
-        properties = [
-            'id',
-            '_Rectangle__width',
-            '_Rectangle__height',
-            '_Rectangle__x',
-            '_Rectangle__y',
-        ]
-        update_pairs = dict(zip(properties, args))
-        original_args.update(update_pairs)
+        new_pairs = dict(zip(keys, args))
+        original_dict.update(new_pairs)
 
     def __str__(self):
         """The more human-readable version of the Rectangle"""
