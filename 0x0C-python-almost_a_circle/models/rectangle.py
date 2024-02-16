@@ -102,7 +102,7 @@ class Rectangle(Base):
                 'width': '_Rectangle__width',
                 'height': '_Rectangle__height',
                 'x': '_Rectangle__x',
-                'y': '_Rectangle__y'
+                'y': '_Rectangle__y',
             }
 
             for k, v in kwargs.items():
