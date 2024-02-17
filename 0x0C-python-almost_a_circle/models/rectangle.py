@@ -104,6 +104,16 @@ class Rectangle(Base):
             for k, v in kwargs.items():
                 exec('self.{} = {}'.format(k, v))
 
+    def to_dictionary(self):
+        """Returns the dictionary representation the Rectangle"""
+        return {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y,
+        }
+
     def __str__(self):
         """The more human-readable version of the Rectangle"""
         id = self.id
