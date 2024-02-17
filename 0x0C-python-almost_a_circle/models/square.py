@@ -22,6 +22,18 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
+    def update(self, *args, **kwargs):
+        # assign values from *args if they exist
+        if args and len(args):
+            args_order = ['id', 'size', 'x', 'y']
+
+            for property, value in zip(args_order, args):
+                exec('self.{} = {}'.format(property, value))
+        else:
+            # assign values from **kwargs
+            for k, v in kwargs.items():
+                exec('self.{} = {}'.format(k, v))
+
     def __str__(self):
         """Human-readable representation of the Square"""
         id = self.id
