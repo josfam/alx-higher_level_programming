@@ -37,6 +37,15 @@ class Square(Rectangle):
             for k, v in kwargs.items():
                 exec('self.{} = {}'.format(k, v))
 
+    def to_dictionary(self):
+        """Return the dictionary representation of the Square"""
+        return {
+            'id': self.id,
+            'size': self.size,
+            'x': self.x,
+            'y': self.y,
+        }
+
     def __str__(self):
         """Human-readable representation of the Square"""
         id = self.id
