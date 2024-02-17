@@ -32,9 +32,12 @@ class Base:
         dict_list = []
         file = '{}.json'.format(cls.__name__)
 
-        # collect the dictionary representations of all objects
-        for obj in list_objs:
-            dict_list.append(obj.to_dictionary())
+        if list_objs is None:
+            pass
+        else:
+            # collect the dictionary representations of all objects
+            for obj in list_objs:
+                dict_list.append(obj.to_dictionary())
 
         # write the dictionary strings to a file
         with open(file, 'w', encoding='utf-8') as f:
