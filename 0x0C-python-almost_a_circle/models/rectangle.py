@@ -87,26 +87,22 @@ class Rectangle(Base):
             print('{}{}'.format(' ' * x, '#' * self.width))
 
     def update(self, *args, **kwargs):
-        """Assigns an argument to each attribute"""
+        """Assigns a value to each attribute from a list of arguments or
+        keywords
+        """
         original_dict = self.__dict__
         keys = self.__dict__.keys()
 
-        # skip **kwargs if *args exists and is not empty
+        # assign values from *args if they exist
         if args and len(args):
-            new_pairs = dict(zip(keys, args))
-            original_dict.update(new_pairs)
-        else:
-            # translating the provided kwargs into class properties
-            kwargs_translation = {
-                'id': 'id',
-                'width': '_Rectangle__width',
-                'height': '_Rectangle__height',
-                'x': '_Rectangle__x',
-                'y': '_Rectangle__y',
-            }
+            args_order = ['id', 'width', 'height', 'x', 'y']
 
+            for property, value in zip(args_order, args):
+                exec('self.{} = {}'.format(property, value))
+        else:
+            # assign values from **kwargs
             for k, v in kwargs.items():
-                original_dict.update({kwargs_translation[k]: v})
+                exec('self.{} = {}'.format(k, v))
 
     def __str__(self):
         """The more human-readable version of the Rectangle"""
