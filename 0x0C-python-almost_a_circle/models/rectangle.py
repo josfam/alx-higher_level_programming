@@ -90,19 +90,16 @@ class Rectangle(Base):
         """Assigns a value to each attribute from a list of arguments or
         keywords
         """
-        original_dict = self.__dict__
-        keys = self.__dict__.keys()
-
         # assign values from *args if they exist
         if args and len(args):
             args_order = ['id', 'width', 'height', 'x', 'y']
 
             for property, value in zip(args_order, args):
-                exec('self.{} = {}'.format(property, value))
+                setattr(self, property, value)
         else:
             # assign values from **kwargs
             for k, v in kwargs.items():
-                exec('self.{} = {}'.format(k, v))
+                setattr(self, k, v)
 
     def to_dictionary(self):
         """Returns the dictionary representation the Rectangle"""
