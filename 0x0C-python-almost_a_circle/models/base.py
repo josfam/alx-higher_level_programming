@@ -5,7 +5,7 @@ Write the first class Base:
 """
 
 import json
-from pathlib import Path
+import os
 
 
 class Base:
@@ -76,7 +76,7 @@ class Base:
         file = '{}.json'.format(cls.__name__)
         instance_list = []
 
-        if not Path(file).exists():
+        if not os.path.exists(file):
             return []
         else:
             with open(file, 'r', encoding='utf-8') as f:
