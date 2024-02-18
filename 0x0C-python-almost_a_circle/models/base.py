@@ -6,6 +6,7 @@ Write the first class Base:
 
 import json
 import os
+import csv
 
 
 class Base:
@@ -88,5 +89,45 @@ class Base:
                         dict_list = cls.from_json_string(line)
                         for dictionary in dict_list:
                             instance_list.append(cls.create(**dictionary))
+
+        return instance_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Serializes and writes objects into a CSV file"""
+        class_name = cls.__name__
+        file = '{}.csv'.format(class_name)
+
+        if class_name == 'Rectangle':
+            fieldnames = ['id', 'width', 'height', 'x', 'y']
+        else:
+            fieldnames = ['id', 'size', 'x', 'y']
+        # write object to csv file
+        with open(file, 'w', encoding='utf-8') as f:
+            for obj in list_objs:
+                writer = csv.DictWriter(f, fieldnames=fieldnames)
+                writer.writerow(obj.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Deserializes objects from a CSV file"""
+        class_name = cls.__name__
+        file = '{}.csv'.format(cls.__name__)
+        instance_list = []
+
+        if class_name == 'Rectangle':
+            fieldnames = ['id', 'width', 'height', 'x', 'y']
+        else:
+            fieldnames = ['id', 'size', 'x', 'y']
+        # read properties from the csv file
+        with open(file, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f, fieldnames=fieldnames)
+            for instance_info in reader:
+                # turn string values in dict into integers
+                for key, val in instance_info.items():
+                    instance_info[key] = int(val)
+                # create a new instance and add it to the list
+                new_instance = cls.create(**instance_info)
+                instance_list.append(new_instance)
 
         return instance_list
