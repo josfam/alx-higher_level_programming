@@ -51,3 +51,21 @@ class Base:
             return []
 
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Returns an instance with all attributes
+        (from the provided dictionary) already set
+        """
+        if cls.__name__ == 'Rectangle':
+            # create rectangle with default, temporary, width and height
+            new_object = cls(1, 1)
+        else:
+            # create square with a temporary default size of 1
+            new_object = cls(1)
+
+        # populate the class, overriding defaults where necessary
+        for key, val in dictionary.items():
+            new_object.__setattr__(key, val)
+
+        return new_object
