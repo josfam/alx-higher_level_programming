@@ -5,6 +5,7 @@ Write the first class Base:
 """
 
 import json
+from pathlib import Path
 
 
 class Base:
@@ -68,3 +69,24 @@ class Base:
         new_object.update(**dictionary)
 
         return new_object
+
+    @classmethod
+    def load_from_file(cls):
+        """Returns a list of instances after parsing then from a file"""
+        file = '{}.json'.format(cls.__name__)
+        instance_list = []
+
+        if not Path(file).exists():
+            return []
+        else:
+            with open(file, 'r', encoding='utf-8') as f:
+                for line in f:
+                    # skip empty lines
+                    if line == '':
+                        continue
+                    else:
+                        dict_list = cls.from_json_string(line)
+                        for dictionary in dict_list:
+                            instance_list.append(cls.create(**dictionary))
+
+        return instance_list
