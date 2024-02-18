@@ -65,7 +65,6 @@ class Base:
             new_object = cls(1)
 
         # populate the class, overriding defaults where necessary
-        for key, val in dictionary.items():
-            new_object.__setattr__(key, val)
+        new_object.update(dictionary)
 
         return new_object
