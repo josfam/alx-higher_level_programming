@@ -65,6 +65,6 @@ class Base:
             new_object = cls(1)
 
         # populate the class, overriding defaults where necessary
-        new_object.update(dictionary)
+        new_object.update(**dictionary)
 
         return new_object
