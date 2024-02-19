@@ -7,7 +7,7 @@ from models.rectangle import Rectangle as R
 
 class TestRectangle(unittest.TestCase):
     
-    """Test cases for a Rectangle class"""
+    """Test cases for a Rectangle class"""       
 
     # store various error messages
     errors = {
@@ -77,6 +77,20 @@ class TestRectangle(unittest.TestCase):
             r1 = R(1, 2, {3})
         with self.assertRaises(TypeError, msg=self.errors['y_type']):
             r1 = R(1, 2, 3, [4])
+
+    def test_invalid_integers_for_width_and_height_report_errors(self):
+        with self.assertRaises(ValueError, msg=self.errors['width_limit']):
+            r1 = R(0, 1)
+            r1 = R(-1, 1)
+        with self.assertRaises(ValueError, msg=self.errors['height_limit']):
+            r1 = R(1, 0)
+            r1 = R(1, -1)
+
+    def test_invalid_integers_for_x_and_y_report_errors(self):
+        with self.assertRaises(ValueError, msg=self.errors['x_limit']):
+            r1 = R(1, 1, -1, 0)
+        with self.assertRaises(ValueError, msg=self.errors['y_limit']):
+            r1 = R(1, 1, 0, -1)
 
 if __name__ == '__main__':
     unittest.main()
