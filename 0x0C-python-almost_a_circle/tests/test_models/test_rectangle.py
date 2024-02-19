@@ -49,6 +49,25 @@ class TestRectangle(unittest.TestCase):
         r1.height = 30
         self.assertEqual(r1.width, 20)
         self.assertEqual(r1.height, 30)
+    
+    def test_invalid_types_for_width_and_height_report_errors(self):
+        width_mismatch = 'width must be an integer'
+        height_mismatch = 'height must be an integer'
+       
+        with self.assertRaises(TypeError, msg=width_mismatch):
+            r1 = R('1', 2)
+            r1 = R([], 2)
+        with self.assertRaises(TypeError, msg=height_mismatch):
+            r2 = R(1, '2')
+            r2 = R(1, {})
+
+    def test_invalid_types_for_x_and_y_report_errors(self):
+        x_mismatch = 'x must be an integer'
+        y_mismatch = 'y must be an integer'
+        with self.assertRaises(TypeError, msg=x_mismatch):
+            r1 = R(1, 2, {3})
+        with self.assertRaises(TypeError, msg=y_mismatch):
+            r1 = R(1, 2, 3, [4])
 
 if __name__ == '__main__':
     unittest.main()
