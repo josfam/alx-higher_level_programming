@@ -21,5 +21,17 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError, msg=missing_both):
             r2 = R()
 
+    def test_new_rectangles_have_increasing_ids(self):
+        r1 = R(1, 2)
+        self.assertEqual(r1.id, 1)
+        r2 = R(3, 4)
+        self.assertEqual(r2.id, 2)
+
+    def test_new_rectangles_have_default_x_and_y_of_0(self):
+        r1 = R(1, 2)
+        self.assertEqual(r1.x, 0)
+        self.assertEqual(r1.y, 0)
+
+
 if __name__ == '__main__':
     unittest.main()
