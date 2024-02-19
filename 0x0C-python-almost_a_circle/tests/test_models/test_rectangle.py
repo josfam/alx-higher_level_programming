@@ -31,7 +31,24 @@ class TestRectangle(unittest.TestCase):
         r1 = R(1, 2)
         self.assertEqual(r1.x, 0)
         self.assertEqual(r1.y, 0)
+        
+    def test_setting_x_and_y_changes_those_values(self):
+        r1 = R(1, 2, 3, 4)
+        self.assertEqual(r1.x, 3)
+        self.assertEqual(r1.y, 4)
+        r1.x = 4
+        r1.y = 5
+        self.assertEqual(r1.x, 4)
+        self.assertEqual(r1.y, 5)
 
+    def test_setting_width_and_height_changes_those_values(self):
+        r1 = R(10, 20)
+        self.assertEqual(r1.width, 10)
+        self.assertEqual(r1.height, 20)
+        r1.width = 20
+        r1.height = 30
+        self.assertEqual(r1.width, 20)
+        self.assertEqual(r1.height, 30)
 
 if __name__ == '__main__':
     unittest.main()
