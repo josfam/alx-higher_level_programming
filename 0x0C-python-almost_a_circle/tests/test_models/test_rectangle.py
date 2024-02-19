@@ -6,19 +6,33 @@ from models.base import Base as B
 from models.rectangle import Rectangle as R
 
 class TestRectangle(unittest.TestCase):
+    
     """Test cases for a Rectangle class"""
+
+    # store various error messages
+    errors = {
+        'height_missing': "TypeError: Rectangle.__init__() missing 1 \
+            required positional argument: 'height'",
+        'missing_both': "TypeError: Rectangle.__init__() missing 2 required \
+            positional argnt: 'width' and 'height'",
+        'width_type': 'width must be an integer',
+        'height_type': 'height must be an integer',
+        'x_type': 'x must be an integer',
+        'y_type': 'y must be an integer',
+        'width_limit': 'width must be > 0',
+        'height_limit': 'height must be > 0',
+        'x_limit': 'x must be >= 0',
+        'y_limit': 'y must be >= 0',
+    }
+
     def setUp(self) -> None:
         """Code to run before each test"""
-        B._Base__nb_objects = 0  # reset object counter
+        B._Base__nb_objects = 0  # reset object counter for every test
 
     def test_new_rectangles_require_both_width_and_height(self):
-        height_missing = "TypeError: Rectangle.__init__() missing 1 \
-            required positional argument: 'height'"
-        missing_both = "TypeError: Rectangle.__init__() missing 2 required \
-            positional arguments: 'width' and 'height'"
-        with self.assertRaises(TypeError, msg=height_missing):
+        with self.assertRaises(TypeError, msg=self.errors['height_missing']):
             r1 = R(1)
-        with self.assertRaises(TypeError, msg=missing_both):
+        with self.assertRaises(TypeError, msg=self.errors['missing_both']):
             r2 = R()
 
     def test_new_rectangles_have_increasing_ids(self):
@@ -51,22 +65,17 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.height, 30)
     
     def test_invalid_types_for_width_and_height_report_errors(self):
-        width_mismatch = 'width must be an integer'
-        height_mismatch = 'height must be an integer'
-       
-        with self.assertRaises(TypeError, msg=width_mismatch):
+        with self.assertRaises(TypeError, msg=self.errors['width_type']):
             r1 = R('1', 2)
             r1 = R([], 2)
-        with self.assertRaises(TypeError, msg=height_mismatch):
+        with self.assertRaises(TypeError, msg=self.errors['height_type']):
             r2 = R(1, '2')
             r2 = R(1, {})
 
     def test_invalid_types_for_x_and_y_report_errors(self):
-        x_mismatch = 'x must be an integer'
-        y_mismatch = 'y must be an integer'
-        with self.assertRaises(TypeError, msg=x_mismatch):
+        with self.assertRaises(TypeError, msg=self.errors['x_type']):
             r1 = R(1, 2, {3})
-        with self.assertRaises(TypeError, msg=y_mismatch):
+        with self.assertRaises(TypeError, msg=self.errors['y_type']):
             r1 = R(1, 2, 3, [4])
 
 if __name__ == '__main__':
