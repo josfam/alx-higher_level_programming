@@ -29,6 +29,10 @@ class TestRectangle(unittest.TestCase):
         """Code to run before each test"""
         B._Base__nb_objects = 0  # reset object counter for every test
 
+    def test_rectangles_must_inherit_from_Base(self):
+        parent = R.__base__.__name__
+        self.assertEqual(parent, 'Base')
+
     def test_new_rectangles_require_both_width_and_height(self):
         with self.assertRaises(TypeError, msg=self.errors['height_missing']):
             r1 = R(1)
