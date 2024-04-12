@@ -1,2 +1,6 @@
 # python virtual environments
 venv/
+alxorm/
+
+# test sql files
+0-select_states.sql
