@@ -31,7 +31,7 @@ if __name__ == '__main__':
             SELECT states.name
             FROM states
             WHERE states.id = cities.state_id
-        ) as state_name
+        ) AS state_name
         FROM cities
         ORDER BY cities.id ASC;
     """
