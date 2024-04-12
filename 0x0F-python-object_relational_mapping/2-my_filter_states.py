@@ -23,8 +23,8 @@ if __name__ == '__main__':
     )
 
     cur = db.cursor()
-    command = """SELECT * FROM states WHERE name=%s"""
-    cur.execute(command, (to_find,))
+    command = """SELECT * FROM states WHERE name='{}'"""
+    cur.execute(command.format(to_find))
 
     for pair in cur.fetchall():
         print(pair)
