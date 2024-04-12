@@ -32,7 +32,8 @@ if __name__ == '__main__':
             FROM states
             WHERE states.id = cities.state_id
         ) as state_name
-        FROM cities;
+        FROM cities
+        ORDER BY cities.id ASC;
     """
     cur.execute(command)
 
