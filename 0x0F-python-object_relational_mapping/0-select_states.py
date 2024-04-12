@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+"""Uses MySQLdb to interact with a MYSQL database"""
+
 if __name__ == '__main__':
     import sys
     import MySQLdb
