@@ -4,3 +4,5 @@ alxorm/
 
 # test sql files
 0-select_states.sql
+3-my_safe_filter_states.sql
+4-cities_by_state.sql
