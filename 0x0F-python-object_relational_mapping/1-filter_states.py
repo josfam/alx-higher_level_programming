@@ -31,3 +31,4 @@ if __name__ == '__main__':
         print(pair)
 
     cur.close()
+    db.close()
