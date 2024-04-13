@@ -22,7 +22,7 @@ engine = create_engine(
 Session = sessionmaker(bind=engine)
 session = Session()
 
-all_states = session.query(State).all()
+all_states = session.query(State).order_by(State.id.asc())
 for state in all_states:
     print('{}: {}'.format(state.id, state.name))
 
