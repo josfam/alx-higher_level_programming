@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-"""Fetches all states from the database.
 
-Qn:
-Write a script that prints the State object with the name passed as argument
-from the database hbtn_0e_6_usa
+"""Prints the id of the state that matches the given state, if it exists.
+Otherwise, prints `Not found`
 """
 
 if __name__ == '__main__':
