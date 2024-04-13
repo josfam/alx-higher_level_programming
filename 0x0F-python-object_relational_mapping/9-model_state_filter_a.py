@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-"""Fetches all states from the database.
 
-Qn:
-Write a script that lists all State objects that contain the letter a from the
-database hbtn_0e_6_usa
+"""Prints the state/states whose names contain the letter `a`, anywhere in the
+state name.
 """
 
 if __name__ == '__main__':
