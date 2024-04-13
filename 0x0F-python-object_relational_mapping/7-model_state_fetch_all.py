@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 
-"""Fetches all states from the database"""
+"""Fetches all states from the database.
+
+Qn:
+Write a script that lists all State objects from the database hbtn_0e_6_usa
+"""
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
