@@ -29,7 +29,7 @@ if __name__ == '__main__':
 
     first_state = session.query(State).first()  # the first state
     if not first_state:
-        pass
+        print('Nothing')
     else:
         print('{}: {}'.format(first_state.id, first_state.name))
 
