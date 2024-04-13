@@ -1,9 +1,6 @@
 #!/usr/bin/python3
-"""Fetches all states from the database.
 
-Qn:
-Write a script that prints the first State object from the database
-hbtn_0e_6_usa
+"""Prints the first state returned from a query of existing states
 """
 
 if __name__ == '__main__':
