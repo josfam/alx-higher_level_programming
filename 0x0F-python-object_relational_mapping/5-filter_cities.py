@@ -28,8 +28,8 @@ if __name__ == '__main__':
     command = """
         SELECT cities.name
         FROM cities
-        WHERE state_id = 
-        ( 
+        WHERE state_id =
+        (
             SELECT id
             FROM states
             WHERE name = %s
