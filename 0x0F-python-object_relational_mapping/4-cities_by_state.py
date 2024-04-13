@@ -26,7 +26,7 @@ if __name__ == '__main__':
     command = """
         SELECT
         cities.id,
-        cities.name, 
+        cities.name,
         (
             SELECT states.name
             FROM states
