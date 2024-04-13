@@ -13,6 +13,7 @@ Base = declarative_base()
 
 class State(Base):
     """Represents a state (location)"""
+
     __tablename__ = 'states'
 
     id = Column(
