@@ -9,7 +9,7 @@ if __name__ == '__main__':
     username = sys.argv[1]
     access_token = sys.argv[2]
 
-    url = 'https://api.github.com/users/{username}'.format(username)
+    url = 'https://api.github.com/users/{}'.format(username)
     headers = {
         'Accept': 'application/vnd.github+json',
         'Authorization': f'token {access_token}',
