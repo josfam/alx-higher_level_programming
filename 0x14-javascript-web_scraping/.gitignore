@@ -1,2 +1,9 @@
 # test files
 cisfun
+
+# Swap files
+*.swp
+
+# other files
+my_file.txt
+
