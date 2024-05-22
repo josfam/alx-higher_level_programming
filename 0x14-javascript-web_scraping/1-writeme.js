@@ -6,7 +6,7 @@ const textToWrite = process.argv[3];
 
 // write file synchronously
 try {
-  fs.writeFileSync(filename, textToWrite + '\n', 'utf-8');
+  fs.writeFileSync(filename, textToWrite, 'utf-8');
 } catch (err) {
   console.log(err);
 }
