@@ -5,6 +5,7 @@ when the user clicks on the tag DIV#red_header
 */
 
 const header = $('DIV#red_header');
-header.on('click', function () {
+const makeTextRed = function () {
   header.css('color', '#FF0000');
-});
+};
+header.on('click', makeTextRed);
