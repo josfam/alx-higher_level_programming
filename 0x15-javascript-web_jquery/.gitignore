@@ -1,2 +1,6 @@
 # html test files
 html-test-files/
+
+# swap files
+*.swp
+
