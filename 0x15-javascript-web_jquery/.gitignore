@@ -1,6 +1,7 @@
 # html test files
 html-test-files/
 
-# swap files
+# generated files
 *.swp
+*.json
 
