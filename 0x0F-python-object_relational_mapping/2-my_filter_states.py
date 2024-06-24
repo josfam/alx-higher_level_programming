@@ -26,7 +26,7 @@ if __name__ == '__main__':
     )
 
     cur = db.cursor()
-    command = """SELECT * FROM states WHERE name='{}'"""
+    command = """SELECT * FROM states WHERE BINARY name='{}'"""
     cur.execute(command.format(to_find))
 
     for pair in cur.fetchall():
